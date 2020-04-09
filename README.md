@@ -1,4 +1,4 @@
-#pyats-test example
+# pyats-test example
 
 ## Description
 This module is a very simple testing application to show of the pyats-test(genie) libraries.
