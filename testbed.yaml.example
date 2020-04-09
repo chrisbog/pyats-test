@@ -1,0 +1,42 @@
+devices:
+  bogfam1921:
+        connections:
+          cli:
+                ip: 192.168.243.1
+                protocol: ssh
+        credentials:
+          default:
+                username: **********
+                password: **********
+          enable:
+                password: **********
+        os: ios
+        type: router
+
+  bogfam3560:
+        connections:
+          cli:
+                ip: 192.168.243.3
+                protocol: ssh
+                ssh_options: -o Ciphers=+aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+        credentials:
+          default:
+                username: **********
+                password: **********
+          enable:
+                password: **********
+        os: ios
+        type: switch
+
+topology:
+  bogfam1921:
+    interfaces:
+      GigabitEthernet 0/1.1:
+        link: bogfam3560
+        type: ethernet
+
+  bogfam3560:
+    interfaces:
+      GigabitEthernet 0/24:
+        link: bogfam1921
+        type: ethernet
